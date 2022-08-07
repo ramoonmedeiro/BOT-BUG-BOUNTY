@@ -15,4 +15,5 @@ Use esse BOT com segurança e apenas com propósitos corretos. O seu uso indevid
 $ git clone https://github.com/ramoonmedeiro/BOT-BUG-BOUNTY.git
 $ cd BOT-BUG-BOUNTY/
 $ pip3 install -r requirements.txt
+$ python3 main.py &
 ```
