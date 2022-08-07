@@ -9,8 +9,8 @@ Os tipos de falhas que esse BOT pode encontrar são: subdomain takeover, open re
 
 # Instalação e Uso
 
-´´´
+```
 $ git clone https://github.com/ramoonmedeiro/BOT-BUG-BOUNTY.git
 $ cd BOT-BUG-BOUNTY/
 $ pip3 install -r requirements.txt
-´´´
+```
