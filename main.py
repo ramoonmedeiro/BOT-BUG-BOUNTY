@@ -4,7 +4,7 @@ import requests
 
 # Telegram informations
 token = 'YOUR_TOKEN' # CHANGE THIS
-PATH = 'YOUR_PATH_HERE' # CHANGE THIS
+PATH = 'YOUR_PATH_HERE' # CHANGE THIS ex.: home/ramon/go/bin or home/ramon/tools/findomain
 chatid = 'YOUR_CHATID' #CHANGE THIS
 
 # Função que mandas mensagens no TELEGRAM
@@ -29,7 +29,7 @@ with open('ESCOPO', 'r') as arquivo:
 
         os.system(f'{PATH}/go/bin/subfinder -d ' + dominio + ' -o subfind.txt --silent')
         os.system(f'{PATH}/go/bin/assetfinder -subs-only ' + dominio + ' | tee -a asset.txt')
-        os.system(f'{PATH}/findomain/findomain-linux -t ' + dominio + ' -u findo.txt')
+        os.system(f'{PATH}/tools/findomain/findomain-linux -t ' + dominio + ' -u findo.txt')
         os.system(f'curl -s "https://crt.sh/?q=%25.' + dominio + '&output=json" | jq -r ".[].name_value" | {PATH}/go/bin/anew crt.txt')
         os.system('amass enum -d ' + dominio + ' -o amass.txt')
         os.system(f'cat subfind.txt asset.txt findo.txt crt.txt amass.txt | {PATH}/go/bin/anew escopo1.txt')
@@ -100,21 +100,17 @@ with open('ESCOPO', 'r') as arquivo:
         os.system(f"xargs -a escopo200.txt -I@ sh -c 'python3 {PATH}/tools/ParamSpider/paramspider.py -d @ --exclude jpg,svg,jpeg,png -o @.txt'")
         os.system('cat http:/*.txt https:/*.txt | /home/ramon/go/bin/anew spider.txt ; rm -rf http*')
         os.system(f'cat escopo200.txt | {PATH}/go/bin/waybackurls | tee -a wayback.txt')
-        os.system(f'cat escopo200.txt | {PATH}/go/bin/gauplus -o  gauplus.txt')
-        os.system(f'cat wayback.txt gauplus.txt spider.txt | {PATH}/go/bin/anew urls.txt')
-        os.system(f'cat urls.txt | {PATH}/go/bin/httpx -silent -o urls200.txt ; rm wayback.txt gauplus.txt urls.txt')
+        os.system(f'cat escopo200.txt | {PATH}/go/bin/gau | tee -a gau.txt')
+        os.system(f'cat wayback.txt gau.txt spider.txt | {PATH}/go/bin/anew urls.txt')
+        os.system(f'cat urls.txt | {PATH}/go/bin/httpx -silent -o urls200.txt ; rm wayback.txt gau.txt urls.txt')
         
 # CRAWLER ENUMERATION COM HACKRWALER COM DEPTH 2
 
         os.system(f'cat escopo200.txt | {PATH}/go/bin/hakrawler -subs -d 2 | tee -a crawl.txt')
 
-# CRAWLER ENUMERATION COM CARIDDI E DEPTH 2
-
-        os.system('cat escopo200.txt | cariddi -intensive -ot saida ; cp output-cariddi/saida.results.txt . ; rm -rf output-cariddi')
-
 # URLS POSSIVEIS
 
-        os.system(f'cat crawl.txt urls200.txt saida.results.txt | {PATH}/go/bin/anew urlsFULL.txt ; rm urls200.txt crawl.txt saida.results.txt')
+        os.system(f'cat crawl.txt urls200.txt | {PATH}/go/bin/anew urlsFULL.txt ; rm urls200.txt crawl.txt')
         end = 0
         with open('urlsFULL.txt', 'r') as arquivo:
             for linha in arquivo:
@@ -125,7 +121,7 @@ with open('ESCOPO', 'r') as arquivo:
 
 # ENUMERAÇÃO DE JS
 
-        os.system('cat urlsFULL.txt | grep -iE "\.js"|grep -ivE "\.json" | sort -u | tee -a j.txt')
+        os.system('cat urlsFULL.txt | grep -iE "\.js" | grep -ivE "\.json" | sort -u | tee -a j.txt')
         os.system(f'{PATH}/go/bin/getJS --input escopo200.txt --complete --output gJS1.txt')
         os.system(f'{PATH}/go/bin/getJS --input urlsFULL.txt --complete --output gJS2.txt')
         os.system(f'cat j.txt gJS1.txt gJS2.txt | {PATH}/go/bin/anew js.txt ; rm j.txt gJS1.txt gJS2.txt')
@@ -251,7 +247,7 @@ with open('ESCOPO', 'r') as arquivo:
         msg26 = f'## ANÁLISE DO SUBDOMINIO {dominio} TERMINADA, INDO PARA O PRÓXIMO.'
         send_message(token, chatid, msg26)
 
-        os.chdir(f'{PATH}/BUGBOUNTY')
+        os.chdir(f'../')
 
 msg27 = f'## AUTOMAÇÃO TERMINADA'
 send_message(token, chatid, msg27)
