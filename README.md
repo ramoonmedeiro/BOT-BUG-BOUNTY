@@ -28,4 +28,10 @@ $ pip3 install -r requirements.txt
 
 Esse script irá baixar todos os programas necessários para que o BOT funcione. NOTA: Se a linguagem GO não estiver instalada, os programas não serão instalados.
 
-Sendo assim, você está pronto para executar o BOT. OBS.: Recomendo fortemente usar esse script em uma VPS como a digital ocean, já que escanear e procurar falhas em um dado subdomínio pode demorar dias.
+Sendo assim, você está pronto para executar o BOT.
+
+```
+$ python3 main.py &
+```
+
+OBS.: Recomendo fortemente usar esse script em uma VPS como a digital ocean, já que escanear e procurar falhas em um dado subdomínio pode demorar dias.
