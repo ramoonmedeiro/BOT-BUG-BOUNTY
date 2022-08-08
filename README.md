@@ -7,8 +7,6 @@ Este BOT possui ferramentas para scans de portas, crawlers para conseguir descob
 Arquivos sensíveis também podem ser encontrados (.pdf, .sql, .xlsx e etc) 
 Os tipos de falhas que esse BOT pode encontrar são: subdomain takeover, open redirects, XSS refletido e sql injection. 
 
-Use esse BOT com segurança e apenas com propósitos corretos. O seu uso indevido, pode ocasionar em crimes cibernéticos.
-
 # Instalação e Uso
 
 Para poder utilizar esse BOT, é necessário clonar esse repositório:
@@ -35,3 +33,7 @@ $ python3 main.py &
 ```
 
 OBS.: Recomendo fortemente usar esse script em uma VPS como a digital ocean, já que escanear e procurar falhas em um dado subdomínio pode demorar dias.
+
+# Atenção
+
+Use esse BOT com segurança e apenas com propósitos corretos. O seu uso indevido, pode ocasionar em crimes cibernéticos.
