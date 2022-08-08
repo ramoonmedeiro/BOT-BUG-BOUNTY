@@ -11,9 +11,19 @@ Use esse BOT com segurança e apenas com propósitos corretos. O seu uso indevid
 
 # Instalação e Uso
 
+Para poder utilizar esse BOT, é necessário clonar esse repositório:
+
 ```
 $ git clone https://github.com/ramoonmedeiro/BOT-BUG-BOUNTY.git
 $ cd BOT-BUG-BOUNTY/
-$ pip3 install -r requirements.txt
-$ python3 main.py &
 ```
+
+Após executar o comando acima, é necessário  baixar a linguagem GO (https://go.dev/). Após baixar o GO, você está pronto para executar o script setup.sh
+
+```
+$ chmod setup.sh
+$ ./setup.sh
+$ pip3 install -r requirements.txt
+```
+
+Esse script irá baixar todos os programas necessários para que o BOT funcione. NOTA: Se a linguagem GO não estiver instalada, os programas não serão instalados.
