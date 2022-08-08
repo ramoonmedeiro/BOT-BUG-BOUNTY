@@ -21,9 +21,11 @@ $ cd BOT-BUG-BOUNTY/
 Após executar o comando acima, é necessário  baixar a linguagem GO (https://go.dev/). Após baixar o GO, você está pronto para executar o script setup.sh
 
 ```
-$ chmod setup.sh
+$ chmod a+x setup.sh
 $ ./setup.sh
 $ pip3 install -r requirements.txt
 ```
 
 Esse script irá baixar todos os programas necessários para que o BOT funcione. NOTA: Se a linguagem GO não estiver instalada, os programas não serão instalados.
+
+Sendo assim, você está pronto para executar o BOT. OBS.: Recomendo fortemente usar esse script em uma VPS como a digital ocean, já que escanear e procurar falhas em um dado subdomínio pode demorar dias.
