@@ -18,7 +18,7 @@ $ git clone https://github.com/ramoonmedeiro/BOT-BUG-BOUNTY.git
 $ cd BOT-BUG-BOUNTY/
 ```
 
-Após executar o comando acima, é necessário  baixar a linguagem GO (https://go.dev/). Após baixar o GO, você está pronto para executar o script setup.sh
+Após executar o comando acima, é necessário  baixar a linguagem GO versão 1.17 no mínimo (https://go.dev/). Após baixar o GO, você está pronto para executar o script setup.sh
 
 ```
 $ chmod a+x setup.sh
