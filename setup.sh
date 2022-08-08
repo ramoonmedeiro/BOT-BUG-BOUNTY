@@ -70,3 +70,14 @@ echo ""
 go install github.com/hahwul/dalfox/v2@latest
 go install github.com/KathanP19/Gxss@latest
 
+
+echo ""
+echo "[+] Instalando SqlMap..."
+echo ""
+
+cd tools/ ; git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git sqlmap-dev
+
+
+echo ""
+echo "[+] Instalação Finalizada!"
+echo ""
